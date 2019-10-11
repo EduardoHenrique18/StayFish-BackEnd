@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+var port = process.env.PORT || 8080;
+
 const routes = require('./routes');
 
 const app = express();
@@ -14,4 +16,4 @@ mongoose.connect('mongodb+srv://kvothe:1123581321@stayfish-kzjb2.mongodb.net/tes
 app.use(express.json());
 app.use(routes);
 
-app.listen(8080);
+app.listen(port);
