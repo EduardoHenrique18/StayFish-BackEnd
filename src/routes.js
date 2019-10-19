@@ -7,3 +7,9 @@ const routes = express.Router();
 routes.post('/add', UserController.create);
 
 module.exports = routes;
+
+
+
+
+
+
