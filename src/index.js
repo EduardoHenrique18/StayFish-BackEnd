@@ -11,7 +11,9 @@ const app = express();
 app.use(cors());
 
 var port = process.env.PORT || 8080;
-const uri = process.env.ATLAS_URI;
+uri = process.env.ATLAS_URI;
+teste = process.env.TESTE || 'nao funfou';
+console.log(teste)
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 app.use(express.json());
