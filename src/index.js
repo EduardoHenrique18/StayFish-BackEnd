@@ -6,14 +6,16 @@ const routes = require('./routes');
 
 require('dotenv').config();
 
+
 const app = express();
 
 app.use(cors());
 
+var port = process.env.PORT || 8080;
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 app.use(express.json());
 app.use(routes);
 
-app.listen(8080);
+app.listen(port);
