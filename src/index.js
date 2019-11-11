@@ -12,6 +12,8 @@ var port = process.env.PORT || 8080;
 uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
+mongoose.connect(teste, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+
 app.use(express.json());
 app.use(routes);
 
