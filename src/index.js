@@ -9,8 +9,9 @@ const app = express();
 app.use(cors());
 
 var port = process.env.PORT || 8080;
-uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+uri = process.env.ATLAS_URI || 'put the url here';
+
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 
 app.use(express.json());
 app.use(routes);

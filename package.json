@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/.bin/eslint src/*.js",
+    "dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "lodash": "^4.17.15",
     "mongoose": "^5.7.5"
   },
   "devDependencies": {
