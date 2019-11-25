@@ -12,8 +12,8 @@ const moneySchema = new Schema({
     type: String,
     trim: true
   },
-  status: {
-    type: String,
+  date: {
+    type: Date,
     required: true
   },
   observation: {
@@ -25,7 +25,7 @@ const moneySchema = new Schema({
     required: true
   },
   category: {
-      type: String,
+    type: String,
   },
 }, {
     timestamps: true,

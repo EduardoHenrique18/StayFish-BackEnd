@@ -9,13 +9,9 @@ const app = express();
 app.use(cors());
 
 var port = process.env.PORT || 8080;
-//uri = process.env.ATLAS_URI;
+uri = process.env.ATLAS_URI || 'put the url here';
 
-const teste = 'mongodb+srv://kvothe:1123581321@stayfish-kzjb2.mongodb.net/test?retryWrites=true&w=majority'
-
-mongoose.connect(teste, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
-
-mongoose.connect(teste, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 
 app.use(express.json());
 app.use(routes);

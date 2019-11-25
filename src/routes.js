@@ -12,12 +12,22 @@ routes.post('/add', UserController.create);
 
 routes.post('/login', UserController.login);
 
+routes.post('/balance', UserController.balance);
+
 routes.post('/addMoney', MoneyController.createMoney);
 
 routes.get('/searchMoney', MoneyController.findMoney);
 
-routes.post('/addPayment/', PaymentController.createPayment);
+routes.post('/searchMoneyByDate', MoneyController.searchMoneyByDate);
 
-routes.get('/serachPayment', PaymentController.serchPayment);
+routes.put('/alterMoney', MoneyController.alterMoney);
+
+routes.post('/addPayment', PaymentController.createPayment);
+
+routes.get('/searchPayment', PaymentController.searchPayment);
+
+routes.post('/searchPaymentByDate', PaymentController.searchPaymentByDate);
+
+routes.put('/alterPayment', PaymentController.alterPayment);
 
 module.exports = routes;
