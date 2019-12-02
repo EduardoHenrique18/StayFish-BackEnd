@@ -54,6 +54,38 @@ module.exports = {
     }
   },
 
+  async searchPaymentByYear(req, res) {
+    const { idUser, year } = req.body;
+    try {
+
+      let finalDate = year + "-" + 12 + "-" + 31
+
+      let initialDate = year + "-" + 01 + "-" + 31
+
+      let payments = await Payment.find({ date: { $gte: initialDate, $lte: finalDate }, idUser })
+
+      let resultado = [];
+
+      async function addItensInArray() {
+        for(let i = 0; i <= 11; i++){
+        let sum = 0;
+        await payments.map(result => {
+          if (result.date.getMonth() === i) {
+             sum += parseInt(result.value);
+          }
+        })
+        resultado.push(sum);
+      }}
+
+      await addItensInArray();
+
+      return res.json(resultado);
+
+    } catch (err) {
+      return res.json(err);
+    }
+  },
+
   async alterPayment(req, res) {
     const { _id, value, description, Date, status, observation, category } = req.body;
     try {
