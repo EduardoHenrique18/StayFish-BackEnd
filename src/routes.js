@@ -20,6 +20,8 @@ routes.get('/searchMoney', MoneyController.findMoney);
 
 routes.post('/searchMoneyByDate', MoneyController.searchMoneyByDate);
 
+routes.post('/searchMoneyByYear', MoneyController.searchMoneyByYear);
+
 routes.put('/alterMoney', MoneyController.alterMoney);
 
 routes.post('/addPayment', PaymentController.createPayment);
@@ -29,5 +31,7 @@ routes.get('/searchPayment', PaymentController.searchPayment);
 routes.post('/searchPaymentByDate', PaymentController.searchPaymentByDate);
 
 routes.put('/alterPayment', PaymentController.alterPayment);
+
+routes.post('/searchPaymentByYear', PaymentController.searchPaymentByYear);
 
 module.exports = routes;

@@ -47,6 +47,38 @@ module.exports = {
     }
   },
 
+  async searchMoneyByYear(req, res) {
+    const { idUser, year } = req.body;
+    try {
+
+      let finalDate = year + "-" + 12 + "-" + 31
+
+      let initialDate = year + "-" + 01 + "-" + 31
+
+      let money = await Money.find({ date: { $gte: initialDate, $lte: finalDate }, idUser })
+
+      let resultado = [];
+
+      async function addItensInArray() {
+        for(let i = 0; i <= 11; i++){
+        let sum = 0;
+        await money.map(result => {
+          if (result.date.getMonth() === i) {
+             sum += parseInt(result.value);
+          }
+        })
+        resultado.push(sum);
+      }}
+
+      await addItensInArray();
+
+      return res.json(resultado);
+
+    } catch (err) {
+      return res.json(err);
+    }
+  },
+
   async alterMoney(req, res) {
     const { _id, value, description, date, status, observation, category } = req.body;
     try {
