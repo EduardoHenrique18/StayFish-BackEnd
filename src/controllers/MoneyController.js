@@ -99,8 +99,21 @@ module.exports = {
 
       return res.json(result);
     } catch (err) {
-      console.log('aqui', err)
       return err;
+    }
+  },
+
+  async updateMoney(req, res) {
+    const {_id, value, description, date, status, observation, category } = req.body;
+    
+
+    try {
+      let request = await Money.findByIdAndUpdate({ _id }, {value, description, date, status, observation, category});
+
+      return res.json(request);
+    } catch (err) {
+
+      return res.json(err);
     }
   }
 }

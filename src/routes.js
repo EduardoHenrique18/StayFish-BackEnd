@@ -22,7 +22,7 @@ routes.post('/searchMoneyByDate', MoneyController.searchMoneyByDate);
 
 routes.post('/searchMoneyByYear', MoneyController.searchMoneyByYear);
 
-routes.put('/alterMoney', MoneyController.alterMoney);
+routes.post('/alterMoney', MoneyController.alterMoney);
 
 routes.post('/addPayment', PaymentController.createPayment);
 
@@ -38,6 +38,8 @@ routes.delete('/deletDebt', PaymentController.deletDebt);
 
 routes.delete('/deletInvoice', MoneyController.deletInvoice);
 
-routes.post('/updatePayment', PaymentController.updatePayment)
+routes.post('/updatePayment', PaymentController.updatePayment);
+
+routes.post('/updateMoney', MoneyController.updateMoney);
 
 module.exports = routes;
