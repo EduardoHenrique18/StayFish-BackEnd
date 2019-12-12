@@ -1,6 +1,7 @@
 const Payment = require('../models/Payment');
 const User = require('../models/User');
 const _ = require('lodash');
+const moment = require('moment');
 
 module.exports = {
   async createPayment(req, res) {
@@ -98,4 +99,28 @@ module.exports = {
       return res.json(err);
     }
   },
+
+  async deletDebt(req, res) {
+    const { _id } = req.body;
+    try {
+      const result = await Payment.deleteOne({_id});
+
+      return res.json(result);
+    } catch (err) {
+      return err;
+    }
+  },
+
+  async updatePayment (req, res) {
+    const { _id, value, description, date, status, observation, category} = req.body;
+
+    try {
+      const request = await Payment.findByIdAndUpdate({ _id }, { value, description, date, status, observation, category });
+
+      return res.json(request);
+    } catch (err) {
+      return res.json(err);
+    }
+  },
 }
+

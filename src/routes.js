@@ -34,4 +34,10 @@ routes.put('/alterPayment', PaymentController.alterPayment);
 
 routes.post('/searchPaymentByYear', PaymentController.searchPaymentByYear);
 
+routes.delete('/deletDebt', PaymentController.deletDebt);
+
+routes.delete('/deletInvoice', MoneyController.deletInvoice);
+
+routes.post('/updatePayment', PaymentController.updatePayment)
+
 module.exports = routes;

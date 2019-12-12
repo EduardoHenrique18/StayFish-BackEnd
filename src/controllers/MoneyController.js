@@ -90,6 +90,18 @@ module.exports = {
     } catch (err) {
       return res.json(err);
     }
+  },
+
+  async deletInvoice(req, res) {
+    const { _id } = req.body;
+    try {
+      const result = await Money.deleteOne({_id});
+
+      return res.json(result);
+    } catch (err) {
+      console.log('aqui', err)
+      return err;
+    }
   }
 }
 
