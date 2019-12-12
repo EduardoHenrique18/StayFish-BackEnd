@@ -1,2 +1,2 @@
 # StayFish
-A university project
+An university project
